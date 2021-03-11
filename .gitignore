@@ -102,3 +102,42 @@ dist
 
 # TernJS port file
 .tern-port
+
+# System Files
+.DS_Store
+Thumbs.db
+
+# misc
+/.sass-cache
+/connect.lock
+/coverage
+/libpeerconnection.log
+testem.log
+/typings
+
+# IDE - VSCode
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+.history/*
+
+# IDEs and editors
+/.idea
+.project
+.classpath
+.c9/
+*.launch
+.settings/
+*.sublime-workspace
+
+# profiling files
+chrome-profiler-events*.json
+speed-measure-plugin*.json
+
+# compiled output
+/tmp
+/out-tsc
+# Only exists if Bazel was run
+/bazel-out
