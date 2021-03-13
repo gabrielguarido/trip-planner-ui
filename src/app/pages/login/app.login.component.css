@@ -1,0 +1,25 @@
+.container {
+  max-width: 400px;
+  margin: auto;
+}
+
+.input {
+  margin-top: 30px;
+}
+
+.content {
+  margin-top: 40%;
+}
+
+label {
+  font-weight: lighter;
+  color: #7f7d7d;
+}
+
+input {
+  width: 100%;
+}
+
+button {
+  width: 100%;
+}

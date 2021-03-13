@@ -1,0 +1,33 @@
+<div class="container">
+  <p-toast key="tst" [style]="{marginTop: '70px'}"></p-toast>
+
+  <div class="ui-g ui-fluid content">
+    <form autocomplete="off" #f="ngForm">
+      <p-card header="Login" subheader="Insert your credentials" [style]="{width: '400px'}" styleClass="p-card-shadow">
+        <ng-template pTemplate="header">
+          <img alt="logo" src="assets/logo.png">
+        </ng-template>
+
+        <div class="ui-g-12 input">
+          <span class="p-float-label">
+              <input id="email-input" type="email" pInputText ngModel required name="email" #email maxlength="140">
+              <label for="email-input">E-mail</label>
+          </span>
+        </div>
+
+        <div class="ui-g-12 input">
+          <span class="p-float-label">
+              <input id="password-input" type="password" pInputText ngModel name="password" required #password minlength="4"
+                     maxlength="20">
+              <label for="password-input">Password</label>
+          </span>
+        </div>
+
+        <ng-template pTemplate="footer">
+          <button pButton type="submit" icon="pi pi-user" label="Login" iconPos="left" [disabled]="!f.valid"
+                  (click)="login(email.value, password.value)"></button>
+        </ng-template>
+      </p-card>
+    </form>
+  </div>
+</div>
