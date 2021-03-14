@@ -18,10 +18,10 @@ export class AuthService {
     localStorage.setItem('user', JSON.stringify(user));
   }
 
-  login(email: string, password: string): Promise<void> {
+  login(authContext: AuthenticationContext): Promise<void> {
     const headers = new HttpHeaders().append('Content-Type', 'application/json');
 
-    return this.http.post<User>(this.loginUrl, new AuthenticationContext(email, password), {headers})
+    return this.http.post<User>(this.loginUrl, authContext, {headers})
       .toPromise()
       .then(response => {
         AuthService.storeUser(response);

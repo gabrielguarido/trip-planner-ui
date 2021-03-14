@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {AuthService} from '../../service/auth.service';
 import {EventHandlerService} from '../../service/eventHandler.service';
+import {AuthenticationContext} from '../../model/context/AuthenticationContext';
 
 @Component({
   selector: 'app-login',
@@ -11,13 +12,13 @@ export class AppLoginComponent implements OnInit {
   isPasswordVisible = false;
 
   constructor(
-    private auth: AuthService,
+    private authService: AuthService,
     private eventHandler: EventHandlerService,
   ) {
   }
 
   login(email: string, password: string): void {
-    this.auth.login(email, password)
+    this.authService.login(new AuthenticationContext(email, password))
       .then(() => {
         this.eventHandler.handleSuccess('It worked!!!');
       })

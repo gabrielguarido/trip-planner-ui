@@ -14,16 +14,19 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 // Components
 import {AppComponent} from './app.component';
 import {AppLoginComponent} from './pages/login/app.login.component';
+import {SignupComponent} from './pages/signup/signup.component';
 
 // Services
 import {AuthService} from './service/auth.service';
 import {EventHandlerService} from './service/eventHandler.service';
 import {MessageService} from 'primeng/api';
+import {UserService} from './service/user.service';
 
 @NgModule({
   declarations: [
     AppComponent,
     AppLoginComponent,
+    SignupComponent,
   ],
   imports: [
     BrowserModule,
@@ -44,6 +47,7 @@ import {MessageService} from 'primeng/api';
     AuthService,
     EventHandlerService,
     MessageService,
+    UserService,
   ],
   bootstrap: [
     AppComponent,
