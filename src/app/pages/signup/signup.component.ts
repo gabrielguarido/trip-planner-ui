@@ -22,9 +22,8 @@ export class SignupComponent {
       .then(() => {
         this.eventHandler.handleSuccess('User registered successfully');
       })
-      .catch(error => {
-        console.log(error);
-        this.eventHandler.handleError(error.toString());
+      .catch(() => {
+        this.eventHandler.handleError('Invalid credentials');
       });
   }
 
