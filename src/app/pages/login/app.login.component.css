@@ -8,7 +8,17 @@
 }
 
 .content {
-  margin-top: 40%;
+  margin-top: 30%;
+}
+
+a {
+  text-decoration: underline;
+  color: blue;
+  cursor: pointer;
+}
+
+span {
+  width: 100%;
 }
 
 label {

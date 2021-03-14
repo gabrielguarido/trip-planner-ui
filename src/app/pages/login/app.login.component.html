@@ -16,9 +16,10 @@
         </div>
 
         <div class="ui-g-12 input">
-          <span class="p-float-label">
-              <input id="password-input" type="password" pInputText ngModel name="password" required #password minlength="4"
-                     maxlength="20">
+          <span class="p-float-label p-input-icon-right">
+              <i class="pi {{isPasswordVisible ? 'pi-eye' : 'pi-eye-slash'}}" (click)="changeVisibility()"></i>
+              <input id="password-input" type="{{isPasswordVisible ? 'text' : 'password'}}" pInputText ngModel
+                     name="password" required #password minlength="4" maxlength="20">
               <label for="password-input">Password</label>
           </span>
         </div>
@@ -26,6 +27,8 @@
         <ng-template pTemplate="footer">
           <button pButton type="submit" icon="pi pi-user" label="Login" iconPos="left" [disabled]="!f.valid"
                   (click)="login(email.value, password.value)"></button>
+
+          <p>Don't have an account yet? <a routerLink="/signup">Sign up now!</a></p>
         </ng-template>
       </p-card>
     </form>

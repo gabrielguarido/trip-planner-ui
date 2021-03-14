@@ -8,6 +8,8 @@ import {EventHandlerService} from '../../service/eventHandler.service';
   styleUrls: ['./app.login.component.css']
 })
 export class AppLoginComponent implements OnInit {
+  isPasswordVisible = false;
+
   constructor(
     private auth: AuthService,
     private eventHandler: EventHandlerService,
@@ -26,5 +28,9 @@ export class AppLoginComponent implements OnInit {
 
   ngOnInit(): void {
     localStorage.clear();
+  }
+
+   changeVisibility = () => {
+    this.isPasswordVisible = !this.isPasswordVisible;
   }
 }
