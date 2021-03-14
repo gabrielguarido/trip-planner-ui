@@ -1,0 +1,10 @@
+.navbar {
+  padding: 0 10px;
+  background-color: #dae8fc;
+  display: flex;
+  justify-content: space-between;
+}
+
+.menu {
+  margin-top: 10px;
+}

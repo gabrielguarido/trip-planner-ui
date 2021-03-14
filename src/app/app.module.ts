@@ -10,11 +10,13 @@ import {ToastModule} from 'primeng/toast';
 import {HttpClientModule} from '@angular/common/http';
 import {AppRoutingModule} from './app-routing.module';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {SplitButtonModule} from 'primeng/splitbutton';
 
 // Components
 import {AppComponent} from './app.component';
 import {AppLoginComponent} from './pages/login/app.login.component';
 import {SignupComponent} from './pages/signup/signup.component';
+import {NavbarComponent} from './pages/navbar/navbar.component';
 
 // Services
 import {AuthService} from './service/auth.service';
@@ -27,6 +29,7 @@ import {UserService} from './service/user.service';
     AppComponent,
     AppLoginComponent,
     SignupComponent,
+    NavbarComponent,
   ],
   imports: [
     BrowserModule,
@@ -39,6 +42,7 @@ import {UserService} from './service/user.service';
     CardModule,
     ToastModule,
     BrowserAnimationsModule,
+    SplitButtonModule,
   ],
   exports: [
     ToastModule,
