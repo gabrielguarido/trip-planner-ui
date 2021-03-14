@@ -25,7 +25,7 @@
         </div>
 
         <ng-template pTemplate="footer">
-          <button pButton type="submit" icon="pi pi-user" label="Login" iconPos="left" [disabled]="!f.valid"
+          <button pButton type="submit" icon="pi pi-user" label="Sign in" iconPos="left" [disabled]="!f.valid"
                   (click)="login(email.value, password.value)"></button>
 
           <p>Don't have an account yet? <a routerLink="/signup">Sign up now!</a></p>
