@@ -7,6 +7,7 @@ import {ConfirmationService} from 'primeng/api';
 import {DialogService, DynamicDialogRef} from 'primeng/dynamicdialog';
 import {PlanCreateComponent} from './create/plan-create.component';
 import {EventContext} from '../../model/context/EventContext';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-plan',
@@ -23,6 +24,7 @@ export class PlanComponent implements OnInit, OnDestroy {
     private eventHandler: EventHandlerService,
     private planService: PlanService,
     private confirmationService: ConfirmationService,
+    private router: Router,
     public dialogService: DialogService,
   ) {
     this.loggedUser = JSON.parse(localStorage.getItem('user') || '{}');
@@ -30,7 +32,11 @@ export class PlanComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-    this.loadPlans();
+    if (!this.loggedUser.id) {
+      this.router.navigate(['/login']);
+    } else {
+      this.loadPlans();
+    }
   }
 
   ngOnDestroy(): void {
