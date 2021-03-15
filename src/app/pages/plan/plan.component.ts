@@ -1,24 +1,29 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {Plan} from '../../model/Plan';
 import {User} from '../../model/User';
 import {PlanService} from '../../service/plan.service';
 import {EventHandlerService} from '../../service/eventHandler.service';
 import {ConfirmationService} from 'primeng/api';
+import {DialogService, DynamicDialogRef} from 'primeng/dynamicdialog';
+import {PlanCreateComponent} from './create/plan-create.component';
+import {EventContext} from '../../model/context/EventContext';
 
 @Component({
   selector: 'app-plan',
   templateUrl: './plan.component.html',
   styleUrls: ['./plan.component.css']
 })
-export class PlanComponent implements OnInit {
+export class PlanComponent implements OnInit, OnDestroy {
   plans: Plan[];
   loggedUser: User;
   selectedPlan: Plan | undefined;
+  ref: DynamicDialogRef | undefined;
 
   constructor(
     private eventHandler: EventHandlerService,
     private planService: PlanService,
     private confirmationService: ConfirmationService,
+    public dialogService: DialogService,
   ) {
     this.loggedUser = JSON.parse(localStorage.getItem('user') || '{}');
     this.plans = [];
@@ -26,6 +31,12 @@ export class PlanComponent implements OnInit {
 
   ngOnInit(): void {
     this.loadPlans();
+  }
+
+  ngOnDestroy(): void {
+    if (this.ref) {
+      this.ref.close();
+    }
   }
 
   loadPlans(): void {
@@ -37,6 +48,23 @@ export class PlanComponent implements OnInit {
   }
 
   selectPlan(plan: Plan): void {
+  }
+
+  confirmCreate(): void {
+    this.ref = this.dialogService.open(PlanCreateComponent, {
+      header: 'Create new plan',
+      width: '30%',
+      contentStyle: {'max-height': '300px', overflow: 'auto'},
+      baseZIndex: 10000
+    });
+
+    this.ref.onClose.subscribe((eventContext: EventContext) => {
+      if (eventContext) {
+        this.eventHandler.handleCustomEvent(eventContext);
+      }
+
+      this.loadPlans();
+    });
   }
 
   confirmDelete(id: number): void {

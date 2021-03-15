@@ -1,0 +1,29 @@
+<div class="container">
+  <div class="ui-g ui-fluid content">
+    <form autocomplete="off" #f="ngForm">
+      <div class="ui-g-12 input">
+        <span class="p-float-label">
+            <input id="country-input" type="text" pInputText ngModel required name="country" #country maxlength="100">
+            <label for="country-input">Country</label>
+        </span>
+      </div>
+
+      <div class="ui-g-12 input">
+        <span class="p-float-label">
+            <p-calendar id="departure-date-input" [touchUI]="true" ngModel name="departureDate" #departureDate required></p-calendar>
+            <label for="departure-date-input">Departure Date</label>
+        </span>
+      </div>
+
+      <div class="ui-g-12 input">
+        <span class="p-float-label">
+            <p-calendar id="return-date-input" [touchUI]="true" ngModel name="returnDate" #returnDate required></p-calendar>
+            <label for="return-date-input">Return Date</label>
+        </span>
+      </div>
+
+      <button pButton type="submit" icon="pi pi-check" class="p-button-success" label="Create" iconPos="left"
+              [disabled]="!f.valid" (click)="create(country.value, departureDate.value, returnDate.value)"></button>
+    </form>
+  </div>
+</div>

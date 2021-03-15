@@ -15,21 +15,21 @@ import {TableModule} from 'primeng/table';
 import {TooltipModule} from 'primeng/tooltip';
 import {RippleModule} from 'primeng/ripple';
 import {ConfirmDialogModule} from 'primeng/confirmdialog';
-
+import {CalendarModule} from 'primeng/calendar';
 // Components
 import {AppComponent} from './app.component';
 import {AppLoginComponent} from './pages/login/app.login.component';
 import {SignupComponent} from './pages/signup/signup.component';
 import {NavbarComponent} from './pages/navbar/navbar.component';
 import {PlanComponent} from './pages/plan/plan.component';
-
+import {PlanCreateComponent} from './pages/plan/create/plan-create.component';
 // Services
 import {AuthService} from './service/auth.service';
 import {EventHandlerService} from './service/eventHandler.service';
-import {MessageService} from 'primeng/api';
+import {ConfirmationService, MessageService} from 'primeng/api';
 import {UserService} from './service/user.service';
 import {PlanService} from './service/plan.service';
-import {ConfirmationService} from 'primeng/api';
+import {DialogService, DynamicDialogModule} from 'primeng/dynamicdialog';
 
 @NgModule({
   declarations: [
@@ -38,6 +38,7 @@ import {ConfirmationService} from 'primeng/api';
     SignupComponent,
     NavbarComponent,
     PlanComponent,
+    PlanCreateComponent,
   ],
   imports: [
     BrowserModule,
@@ -55,6 +56,8 @@ import {ConfirmationService} from 'primeng/api';
     TooltipModule,
     RippleModule,
     ConfirmDialogModule,
+    DynamicDialogModule,
+    CalendarModule,
   ],
   exports: [
     ToastModule,
@@ -66,6 +69,7 @@ import {ConfirmationService} from 'primeng/api';
     UserService,
     PlanService,
     ConfirmationService,
+    DialogService,
   ],
   bootstrap: [
     AppComponent,

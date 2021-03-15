@@ -2,6 +2,7 @@ import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {environment} from '../../environments/environment';
 import {Plan} from '../model/Plan';
+import {PlanCreationContext} from '../model/context/PlanCreationContext';
 
 @Injectable()
 export class PlanService {
@@ -13,7 +14,7 @@ export class PlanService {
 
   apiUrl: string;
 
-  register(plan: Plan): Promise<Plan> {
+  register(plan: PlanCreationContext): Promise<Plan> {
     return this.http.post<Plan>(this.apiUrl, plan)
       .toPromise();
   }
