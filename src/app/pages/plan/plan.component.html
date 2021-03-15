@@ -1,4 +1,6 @@
 <div class="container">
+  <p-confirmDialog header="Confirmation" icon="pi pi-exclamation-triangle"></p-confirmDialog>
+
   <h1>My Plans</h1>
 
   <p-table [value]="plans" styleClass="p-datatable-striped" selectionMode="single" dataKey="id"
@@ -34,11 +36,11 @@
         <td>{{plan.countryName}}</td>
         <td>{{plan.departureDate | date}}</td>
         <td>{{plan.returnDate | date}}</td>
-        <td>{{plan.duration}}</td>
+        <td>{{plan.duration}} days</td>
         <td>{{plan.expenseSet.length | currency: 'BRL'}}</td>
         <td width="10%">
           <button pButton type="button" class="p-button-raised p-button-rounded p-button-danger"
-                  icon="pi pi-trash" pTooltip="Remove Plan" (click)="deletePlan(plan.id)"></button>
+                  icon="pi pi-trash" pTooltip="Remove Plan" (click)="confirmDelete(plan.id)"></button>
         </td>
       </tr>
     </ng-template>

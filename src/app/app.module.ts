@@ -14,6 +14,7 @@ import {SplitButtonModule} from 'primeng/splitbutton';
 import {TableModule} from 'primeng/table';
 import {TooltipModule} from 'primeng/tooltip';
 import {RippleModule} from 'primeng/ripple';
+import {ConfirmDialogModule} from 'primeng/confirmdialog';
 
 // Components
 import {AppComponent} from './app.component';
@@ -28,6 +29,7 @@ import {EventHandlerService} from './service/eventHandler.service';
 import {MessageService} from 'primeng/api';
 import {UserService} from './service/user.service';
 import {PlanService} from './service/plan.service';
+import {ConfirmationService} from 'primeng/api';
 
 @NgModule({
   declarations: [
@@ -52,6 +54,7 @@ import {PlanService} from './service/plan.service';
     TableModule,
     TooltipModule,
     RippleModule,
+    ConfirmDialogModule,
   ],
   exports: [
     ToastModule,
@@ -62,6 +65,7 @@ import {PlanService} from './service/plan.service';
     MessageService,
     UserService,
     PlanService,
+    ConfirmationService,
   ],
   bootstrap: [
     AppComponent,

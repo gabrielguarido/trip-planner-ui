@@ -18,6 +18,11 @@ export class PlanService {
       .toPromise();
   }
 
+  findAllByUserId(userId: number): Promise<Plan[]> {
+    return this.http.get<Plan[]>(`${this.apiUrl}/${userId}`)
+      .toPromise();
+  }
+
   delete(id: number): Promise<any> {
     return this.http.delete(`${this.apiUrl}/${id}`)
       .toPromise();
