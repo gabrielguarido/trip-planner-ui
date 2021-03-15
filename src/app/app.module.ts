@@ -11,18 +11,23 @@ import {HttpClientModule} from '@angular/common/http';
 import {AppRoutingModule} from './app-routing.module';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {SplitButtonModule} from 'primeng/splitbutton';
+import {TableModule} from 'primeng/table';
+import {TooltipModule} from 'primeng/tooltip';
+import {RippleModule} from 'primeng/ripple';
 
 // Components
 import {AppComponent} from './app.component';
 import {AppLoginComponent} from './pages/login/app.login.component';
 import {SignupComponent} from './pages/signup/signup.component';
 import {NavbarComponent} from './pages/navbar/navbar.component';
+import {PlanComponent} from './pages/plan/plan.component';
 
 // Services
 import {AuthService} from './service/auth.service';
 import {EventHandlerService} from './service/eventHandler.service';
 import {MessageService} from 'primeng/api';
 import {UserService} from './service/user.service';
+import {PlanService} from './service/plan.service';
 
 @NgModule({
   declarations: [
@@ -30,6 +35,7 @@ import {UserService} from './service/user.service';
     AppLoginComponent,
     SignupComponent,
     NavbarComponent,
+    PlanComponent,
   ],
   imports: [
     BrowserModule,
@@ -43,6 +49,9 @@ import {UserService} from './service/user.service';
     ToastModule,
     BrowserAnimationsModule,
     SplitButtonModule,
+    TableModule,
+    TooltipModule,
+    RippleModule,
   ],
   exports: [
     ToastModule,
@@ -52,6 +61,7 @@ import {UserService} from './service/user.service';
     EventHandlerService,
     MessageService,
     UserService,
+    PlanService,
   ],
   bootstrap: [
     AppComponent,

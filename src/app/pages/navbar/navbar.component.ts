@@ -35,6 +35,6 @@ export class NavbarComponent {
   }
 
   formatDisplayName(): string {
-    return this.loggedUser.firstName ? this.loggedUser.firstName : '';
+    return this.loggedUser.firstName ? this.loggedUser.firstName + ' ' + this.loggedUser.lastName : '';
   }
 }
