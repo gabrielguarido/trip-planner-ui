@@ -30,7 +30,11 @@ export class PlanCreateComponent {
         this.ref.close(new EventContext('success', 'Plan created successfully', country));
       })
       .catch(error => {
-        this.ref.close(new EventContext('error', error[0], country));
+        let errorMessage = error.toString();
+        if (error.status === 400) {
+          errorMessage = 'The Return Date must be after the selected Departure Date';
+        }
+        this.ref.close(new EventContext('error', errorMessage, country));
       });
   }
 }
