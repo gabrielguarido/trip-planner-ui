@@ -1,0 +1,46 @@
+<div class="container">
+  <p-confirmDialog header="Confirmation" icon="pi pi-exclamation-triangle"></p-confirmDialog>
+  <p-toast key="tst" [style]="{marginTop: '70px'}"></p-toast>
+
+  <div class="card">
+    <p-card header="Destination: {{selectedPlan !== undefined ? selectedPlan.countryName : ''}}">
+      <b>Period: </b>{{departureDate | date}} - {{returnDate | date}}<br>
+      <b>Duration: </b>{{selectedPlan !== undefined ? selectedPlan.duration : ''}} days
+    </p-card>
+  </div>
+
+  <h1>Expenses</h1>
+
+  <p-table [value]="expenses" styleClass="p-datatable-striped" dataKey="id" [responsive]="true"
+           [resizableColumns]="true" [scrollable]="true" scrollHeight="200px">
+    <ng-template pTemplate="caption">
+      <div class="p-d-flex buttons">
+        <button type="button" pButton pRipple icon="pi pi-arrow-circle-left" label="Cancel"
+                routerLink="/plans"></button>
+        <button type="button" pButton pRipple icon="pi pi-plus" class="p-button-success p-mr-2" label="New"
+                (click)="confirmCreate()"></button>
+      </div>
+    </ng-template>
+    <ng-template pTemplate="header">
+      <tr>
+        <th pSortableColumn="description">Description
+          <p-sortIcon field="description"></p-sortIcon>
+        </th>
+        <th pSortableColumn="amount">Amount
+          <p-sortIcon field="amount"></p-sortIcon>
+        </th>
+        <th width="10%"></th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-expense>
+      <tr>
+        <td>{{expense.description}}</td>
+        <td>{{expense.amount | currency: expense.currency}}</td>
+        <td width="10%">
+          <button pButton type="button" class="p-button-raised p-button-rounded p-button-danger"
+                  icon="pi pi-trash" pTooltip="Remove Expense" (click)="confirmDelete(expense.id)"></button>
+        </td>
+      </tr>
+    </ng-template>
+  </p-table>
+</div>

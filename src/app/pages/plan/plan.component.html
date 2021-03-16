@@ -8,7 +8,8 @@
            [(selection)]="selectedPlan" [responsive]="true" [resizableColumns]="true" [scrollable]="true"
            scrollHeight="400px">
     <ng-template pTemplate="caption">
-      <div class="p-d-flex">
+      <div class="p-d-flex buttons">
+        <div></div>
         <button type="button" pButton pRipple icon="pi pi-plus" class="p-button-success p-mr-2" label="New"
                 (click)="confirmCreate()"></button>
       </div>
@@ -34,12 +35,12 @@
       </tr>
     </ng-template>
     <ng-template pTemplate="body" let-plan>
-      <tr [pSelectableRow]="plan" (click)="selectPlan(plan)">
-        <td>{{plan.countryName}}</td>
-        <td>{{plan.departureDate | date}}</td>
-        <td>{{plan.returnDate | date}}</td>
-        <td>{{plan.duration}} days</td>
-        <td>{{plan.expenseSet.length | currency: 'BRL'}}</td>
+      <tr [pSelectableRow]="plan">
+        <td (click)="selectPlan(plan)">{{plan.countryName}}</td>
+        <td (click)="selectPlan(plan)">{{plan.departureDate | date}}</td>
+        <td (click)="selectPlan(plan)">{{plan.returnDate | date}}</td>
+        <td (click)="selectPlan(plan)">{{plan.duration}} days</td>
+        <td (click)="selectPlan(plan)">{{plan.expenseSet.length | currency: 'BRL'}}</td>
         <td width="10%">
           <button pButton type="button" class="p-button-raised p-button-rounded p-button-danger"
                   icon="pi pi-trash" pTooltip="Remove Plan" (click)="confirmDelete(plan.id)"></button>

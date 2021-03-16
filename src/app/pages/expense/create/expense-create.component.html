@@ -1,0 +1,32 @@
+<div class="container">
+  <div class="ui-g ui-fluid content">
+    <form autocomplete="off" #f="ngForm">
+      <div class="ui-g-12 input">
+        <span class="p-float-label">
+            <input id="description-input" type="text" pInputText ngModel required name="description" #description
+                   maxlength="120" autofocus>
+            <label for="description-input">Description</label>
+        </span>
+      </div>
+
+      <div class="ui-g-12 input">
+        <span class="p-float-label">
+            <p-inputNumber id="amount-input" ngModel mode="currency" name="amount" #amount min="1"
+                           currency="{{selectedCurrency !== undefined ? selectedCurrency.currency : 'BRL'}}"></p-inputNumber>
+            <label for="amount-input">Amount</label>
+        </span>
+      </div>
+
+      <div class="ui-g-12 input">
+        <span class="p-float-label">
+            <p-dropdown [options]="currencies" [(ngModel)]="selectedCurrency" optionLabel="currency" #currency
+                        required scrollHeight="300px" name="currency" id="currency-input"></p-dropdown>
+            <label for="currency-input">Currency</label>
+        </span>
+      </div>
+
+      <button pButton type="submit" icon="pi pi-check" class="p-button-success" label="Create" iconPos="left"
+              [disabled]="!f.valid" (click)="create(description.value, amount.value, currency.value)"></button>
+    </form>
+  </div>
+</div>

@@ -20,7 +20,12 @@ export class PlanService {
   }
 
   findAllByUserId(userId: number): Promise<Plan[]> {
-    return this.http.get<Plan[]>(`${this.apiUrl}/${userId}`)
+    return this.http.get<Plan[]>(`${this.apiUrl}/user/${userId}`)
+      .toPromise();
+  }
+
+  findPlanById(planId: number): Promise<Plan> {
+    return this.http.get<Plan>(`${this.apiUrl}/${planId}`)
       .toPromise();
   }
 

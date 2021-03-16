@@ -16,6 +16,9 @@ import {TooltipModule} from 'primeng/tooltip';
 import {RippleModule} from 'primeng/ripple';
 import {ConfirmDialogModule} from 'primeng/confirmdialog';
 import {CalendarModule} from 'primeng/calendar';
+import {ExpenseCreateComponent} from './pages/expense/create/expense-create.component';
+import {DropdownModule} from 'primeng/dropdown';
+import {InputNumberModule} from 'primeng/inputnumber';
 // Components
 import {AppComponent} from './app.component';
 import {AppLoginComponent} from './pages/login/app.login.component';
@@ -23,6 +26,7 @@ import {SignupComponent} from './pages/signup/signup.component';
 import {NavbarComponent} from './pages/navbar/navbar.component';
 import {PlanComponent} from './pages/plan/plan.component';
 import {PlanCreateComponent} from './pages/plan/create/plan-create.component';
+import {ExpenseComponent} from './pages/expense/expense.component';
 // Services
 import {AuthService} from './service/auth.service';
 import {EventHandlerService} from './service/eventHandler.service';
@@ -30,6 +34,7 @@ import {ConfirmationService, MessageService} from 'primeng/api';
 import {UserService} from './service/user.service';
 import {PlanService} from './service/plan.service';
 import {DialogService, DynamicDialogModule} from 'primeng/dynamicdialog';
+import {ExpenseService} from './service/expense.service';
 
 @NgModule({
   declarations: [
@@ -39,6 +44,8 @@ import {DialogService, DynamicDialogModule} from 'primeng/dynamicdialog';
     NavbarComponent,
     PlanComponent,
     PlanCreateComponent,
+    ExpenseComponent,
+    ExpenseCreateComponent,
   ],
   imports: [
     BrowserModule,
@@ -58,6 +65,8 @@ import {DialogService, DynamicDialogModule} from 'primeng/dynamicdialog';
     ConfirmDialogModule,
     DynamicDialogModule,
     CalendarModule,
+    DropdownModule,
+    InputNumberModule,
   ],
   exports: [
     ToastModule,
@@ -70,6 +79,7 @@ import {DialogService, DynamicDialogModule} from 'primeng/dynamicdialog';
     PlanService,
     ConfirmationService,
     DialogService,
+    ExpenseService,
   ],
   bootstrap: [
     AppComponent,

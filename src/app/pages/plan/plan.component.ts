@@ -54,6 +54,7 @@ export class PlanComponent implements OnInit, OnDestroy {
   }
 
   selectPlan(plan: Plan): void {
+    this.router.navigate([`/expenses/${plan.id}`]);
   }
 
   confirmCreate(): void {
