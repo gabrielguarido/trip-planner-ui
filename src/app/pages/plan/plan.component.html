@@ -40,7 +40,7 @@
         <td (click)="selectPlan(plan)">{{plan.departureDate | date}}</td>
         <td (click)="selectPlan(plan)">{{plan.returnDate | date}}</td>
         <td (click)="selectPlan(plan)">{{plan.duration}} days</td>
-        <td (click)="selectPlan(plan)">{{plan.expenseSet.length | currency: 'BRL'}}</td>
+        <td (click)="selectPlan(plan)">{{plan.totalExpenses | currency: plan.currency}}</td>
         <td width="10%">
           <button pButton type="button" class="p-button-raised p-button-rounded p-button-danger"
                   icon="pi pi-trash" pTooltip="Remove Plan" (click)="confirmDelete(plan.id)"></button>
