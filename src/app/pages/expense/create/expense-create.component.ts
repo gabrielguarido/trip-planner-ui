@@ -17,7 +17,7 @@ interface Currency {
   styleUrls: ['./expense-create.component.css']
 })
 export class ExpenseCreateComponent {
-  currencies: Currency[] | undefined;
+  currencies: Currency[];
   selectedCurrency: Currency | undefined;
   selectedPlan: Plan | undefined;
 
@@ -28,6 +28,7 @@ export class ExpenseCreateComponent {
     private expenseService: ExpenseService,
     private router: Router,
   ) {
+    this.currencies = [];
     this.loadPlan();
   }
 

@@ -11,7 +11,7 @@
 
       <div class="ui-g-12 input">
         <span class="p-float-label">
-            <p-inputNumber id="amount-input" ngModel mode="currency" name="amount" #amount min="1"
+            <p-inputNumber id="amount-input" ngModel mode="currency" name="amount" #amount [min]="1"
                            currency="{{selectedCurrency !== undefined ? selectedCurrency.currency : 'BRL'}}"></p-inputNumber>
             <label for="amount-input">Amount</label>
         </span>
@@ -20,7 +20,7 @@
       <div class="ui-g-12 input">
         <span class="p-float-label">
             <p-dropdown [options]="currencies" [(ngModel)]="selectedCurrency" optionLabel="currency" #currency
-                        required scrollHeight="300px" name="currency" id="currency-input"></p-dropdown>
+                        [required]="true" scrollHeight="300px" name="currency" id="currency-input"></p-dropdown>
             <label for="currency-input">Currency</label>
         </span>
       </div>
